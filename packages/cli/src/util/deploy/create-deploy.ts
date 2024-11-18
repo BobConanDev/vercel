@@ -75,6 +75,17 @@ export default async function createDeploy(
           err.dataPath,
           err.params
         );
+      } else {
+        if (
+          err.message.includes('should NOT have more than 15000 items') &&
+          !archive
+        ) {
+          // https://vercel.com/docs/limits/overview#files
+          // https://vercel.com/docs/cli/deploy#archive
+          throw new Error(
+            'You exceed the maximum number of files allowed for a CLI deployment. Try deploying again with `--archive=tgz` to avoid this limit.'
+          );
+        }
       }
 
       if (err.code === 'domain_configured') {
