@@ -1,5 +1,13 @@
 # vercel
 
+## 39.1.1
+
+### Patch Changes
+
+- Remove unused error handling code ([#12619](https://github.com/vercel/vercel/pull/12619))
+
+- Gracefully report error in `vercel link --repo` when a new Project fails to be created ([#12616](https://github.com/vercel/vercel/pull/12616))
+
 ## 39.1.0
 
 ### Minor Changes
